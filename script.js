@@ -1,5 +1,8 @@
+let gamestrtd=false
 function start(){
+     gamestrtd=true
      render()
+
 }
 function sum(arr){
    let k=0
@@ -48,18 +51,25 @@ function render(){
     
 }
 function newCard(){
-   let z=Math.floor(Math.random()*13)+1
+   if(gamestrtd)
+   {
+     let z=Math.floor(Math.random()*13)+1
    if(z>10){
      z=10
 }
 if(z===1){
      z+=10
 }
-cards_array.push(x)
+cards_array.push(z)
 document.getElementById("cards").innerText="Cards: "+cards_array
  sm=sum(cards_array)
  document.getElementById("sum").innerText="Sum: " +sm
+ gamestrtd=false
  cont()
+   }
+   else{
+     document.getElementById("message").innerText="Please Press Start Game to Start"
+   }
 }
 function cont()
 {
